@@ -1,0 +1,76 @@
+<!--order.wxml-->
+ <!-- <view class="order-menu">
+  <view bindtap="onChangeTabs" data-tab-type='all' class="items {{type=='all'?'active':''}}">
+    <text>全部订单</text>
+  </view>
+  <view bindtap="onChangeTabs" data-tab-type='evaluate' class="items {{type=='evaluate'?'active':''}}">
+    <text>待评价</text>
+  </view>
+  <view bindtap="onChangeTabs" data-tab-type='refund' class="items {{type=='refund'?'active':''}}">
+    <text>退款</text>
+  </view>
+</view>  -->
+<view class="order-list" wx:if="{{is_empty==false}}">
+<scroll-view scroll-y style="height: {{windowHeight-10}}px;" bindscrolltolower="scrollLower" >
+    <view class="o-list-item" wx:for="{{type=='all'?orderList.all:type=='evaluate'?orderList.evaluate:orderList.refund}}" wx:key="key">
+      <view class="o-list-title">
+        <image class="t-img" src="../../images/cart.png" mode="widthFix"></image>
+        <text class="t-name">{{item.shopName}}</text>
+        <view class="right">
+           <text class="t-status">{{item.statusText}}</text>
+          <image src="../../images/delete_icon.png" class="ic-delete"></image>
+        </view>
+       
+      </view>
+      <view class="o-list-pro"  bindtap="onNextPage"  data-id='{{item.id}}'>
+         <view  class="goods-bg">
+            <block  wx:for="{{item.goods}}" wx:for-item="goods" wx:key='proid' >
+              <view class="dish-item">
+                <view class="dish-item-wrp">
+                 
+                  <image class="image" src="{{goods.imgUrl}}" style="width: 128rpx; height: 128rpx;"  />
+                 
+                  <view class="dish-item-info flex-1">
+                    <view class="text-hidden-2">
+                      <text class="dish-item-name body-base">{{goods.goodsName}}</text>
+                    </view>
+                    <view class="dish-pi">
+                        <text class="body-base  grey-color">X {{goods.quantity}}</text>
+                        <text class="body-base right">￥ {{goods.price}}</text>
+                    </view>
+                    
+                  </view>
+                
+                </view>
+              </view>                   
+            </block>
+          </view>
+        <view class="o-pro-right">
+          <text  class="p-name">共{{item.totalnum}}件商品,实付 <text class="font-black">￥{{item.totalMoney}}</text></text>
+        </view>
+      </view>
+      <view class="o-list-footer clearfix">
+        <text class='btn-default  right' wx:if="{{item.status==3 || item.status==5}}" data-item="{{item}}" bindtap="Reminder" >催单</text>
+        <text class='btn-default right' wx:if="{{item.status==1 || (item.shipType==0&&item.status==2)}}" data-id='{{item.id}}'  bindtap="cancelOrder" >取消订单</text>
+        <text class='btn-default btn-red right'  wx:if="{{item.status==5}}" data-id='{{item.id}}'   bindtap='receipts' >确认收</text>
+        <text class='btn-default btn-red right' wx:if="{{item.status==1 && item.payType!==0}}" bindtap="goPay" >去支付</text>
+        
+      </view>
+      <!-- <view class="o-list-footer clearfix">
+        <text class='btn-default right'>再来一单</text>
+      </view> -->
+    </view>
+</scroll-view>
+</view>
+
+
+ <view class="classname"  wx:if="{{is_empty==true}}" class="empty-content">
+    <image src="../../../images/no4.png" class="empty-image"></image>
+    <text class="text">亲，你还没有相关的订单</text>
+    <view class="classname"> 
+      <navigator url='/pages/classification/index' open-type="switchTab">
+        <button type="primary" class="btn" >去购物</button>
+      </navigator>
+    </view>
+   
+  </view>

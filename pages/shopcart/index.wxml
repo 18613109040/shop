@@ -1,0 +1,91 @@
+<view class="shop-cart" wx:if="{{is_empty==false}}" >
+  <view class="flex space-between align-items-center header">
+    <view >
+      <image class="shopicon" src="../../images/cart.png" style="width: 48rpx; height: 48rpx;"  ></image>
+      <text>{{shopInfo.name}}</text>
+    </view>
+    <view wx:if="{{eidt==false}}" bindtap="eidtCart" class="body-m">编辑</view>
+    <view wx:if="{{eidt==true}}" bindtap="comoentCart" class="body-m">完成</view>
+  </view>
+  <scroll-view scroll-y="true" >
+    <view wx:for="{{goods}}"  wx:key="{{index}}" class=""  class="{{eidt ? 'cart-goods-bg animation-tran in' : 'cart-goods-bg animation-tran'}}">
+      <view class="cart-dish-item"   >
+        <view class="dish-item-wrp">
+          <view class="check-btn justify-content">
+            <image wx:if="{{item.check==false}}" data-id="{{item.id}}"  data-skuid="{{item.skuid}}"  bindtap="checkToClick" src="../../images/choose_n.png" style="width: 44rpx; height: 44rpx;"  ></image>
+            <image wx:if="{{item.check==true}}" data-id="{{item.id}}" data-skuid="{{item.skuid}}"  bindtap="checkToClick" src="../../images/choose_p.png"style="width:44rpx; height: 44rpx;"></image>
+          </view>
+          <view class="cart-info">
+            <image class="image" class="goodsimg" src="{{item.imageUrl}}" style="width: 170rpx; height: 170rpx;"  />
+             <view class="cart-dish-item-info" >
+              <view class="text-hidden-2" wx:if="{{eidt==false}}">
+                <text class="dish-item-name">{{item.goodsName}}</text>
+              </view>
+              <view class="text-hidden-2 cart-value" wx:if="{{item.attrValues}}">
+                <text class="grey-color body-sm">{{item.attrValues}}</text>
+              </view>
+              <view class="flex space-between align-items-center cart-count">
+                <view class="price">
+                  <text class=" body-m">¥{{item.price}}</text>
+                </view>
+                <view class="dish-item-count" >
+                  <view class="dish-item-tab">
+                    <view hidden="{{item.number <= 1}}" class="dish-item-count-minus" data-id="{{item.id}}"
+                              data-cid="{{item.id}}" data-skuid="{{item.skuid}}"  bindtap="minusCount">
+                      <image class="image" style="width: 48rpx; height: 48rpx;" src="../../images/countMinus.png" />
+                    </view>
+                  </view>
+                  <view class="dish-item-count-text dish-item-tab"  hidden="{{item.number==0}}">
+                    <text>{{item.number}}</text>
+                  </view>
+                  <view class="dish-item-count-plus" data-id="{{item.id}}"  hidden="{{item.number > item.sales}}"
+                                              data-cid="{{item.id}}" data-skuid="{{item.skuid}}" bindtap="addCount">
+                    <image class="image"  style="width: 48rpx; height: 48rpx;" src="../../images/countSelAdd.png" />
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+         
+         
+        </view>
+        <view class="animation-remove" bindtap="deleteShop" data-id="{{item.id}}" data-skuid="{{item.skuid}}">
+          <text>删除</text>
+        </view>
+      </view>                   
+    </view>
+  </scroll-view>
+
+
+  <view class="flex footer-b">
+    <view class="check-all">
+      <image wx:if="{{checkAll==false}}" data-id="{{item.id}}"  bindtap="checkAll" src="../../images/choose_n.png" style="width: 44rpx; height: 44rpx;"  ></image>
+      <image wx:if="{{checkAll==true}}" data-id="{{item.id}}"   bindtap="checkAll" src="../../images/choose_p.png"style="width: 44rpx; height: 44rpx;"></image>     
+    </view>
+    <block  wx:if="{{eidt==false}}">
+      <view class="flex-1 price-t" >
+        <text class="">合计：￥ {{allmoney}} </text>
+      </view>
+      <view class="clearing" bindtap="goClearing">
+          <text>去结算</text>
+      </view>
+    </block>
+   
+    <view class="clearing" wx:if="{{eidt==true}}" bindtap="deleteCart">
+       <text>删除</text>
+    </view>
+    
+  </view>
+
+</view>
+
+ <view   wx:if="{{is_empty==true}}" class="empty-content">
+    <image src="../../../images/no2.png" class="empty-image"></image>
+    <text class="text">亲，你的购物车还没有宝贝</text>
+    <view class="classname"> 
+      <navigator url='/pages/classification/index' open-type="switchTab">
+        <button type="primary" class="btn" >去逛逛</button>
+      </navigator>
+    </view>
+   
+  </view>

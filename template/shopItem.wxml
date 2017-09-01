@@ -1,0 +1,5 @@
+<template name="shopitem" >
+  <view class="shop-item">
+    
+  </view>
+</template>

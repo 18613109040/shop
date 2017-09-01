@@ -1,0 +1,68 @@
+.icon-serch{
+  position: absolute;
+  margin-top: 12rpx;
+  margin-left: 20rpx;
+  z-index: 11;
+}
+.search-in{
+  background: #EAEAEA;
+  border-radius: 100rpx;
+  height: 60rpx;
+  padding-left: 60rpx;
+}
+.top-search{
+  background: white;
+  padding: 20rpx;
+}
+.search-btn{
+  margin-left: 20rpx;
+}
+.adress-dingwei{
+  padding: 20rpx;
+  background: white;
+  text-align: center;
+  margin-top: 20rpx;
+}
+.address-add{
+  padding: 20rpx;
+  background: white;
+  margin-top: 20rpx;
+}
+.address-my-i{
+  padding: 20rpx;
+  margin-top: 20rpx;
+}
+.address-thum{
+  margin-top: 10rpx;
+}
+.address-items{
+   padding: 20rpx;
+   background: white;
+   border-bottom: 1px solid #EAEAEA ;
+   position: relative;
+}
+.address-items.unavaible{
+  color: #999;
+}
+.address-items .unImg{
+  display: none;
+  width:128rpx;
+  height:128rpx;
+  position:absolute;
+  right:50rpx;
+  top:30rpx;
+  z-index:99;
+}
+.address-items.unavaible .unImg{
+  display: inline-block;
+}
+.result{
+  padding: 20rpx;
+  border-top: 1px solid #DDDDDD;
+}
+.ic_clock{
+  width: 36rpx;
+  height: 36rpx;
+  vertical-align: middle;
+  margin-right: 10rpx;
+}

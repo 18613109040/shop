@@ -1,0 +1,137 @@
+<form bindsubmit="postClickOrder" report-submit="true">
+<scroll-view class="order" style="height:{{windowHeight-50}}px" scroll-y="true">
+  <view class="pick-goods">
+    <view class="">
+      <text>提货方式</text>
+    </view>
+    <view class="flex submit-type" >
+      <view class="flex-1" bindtap="clickZiTi">
+        <image src="{{serverImg}}/ziti_n.png" wx:if="{{ziti==1}}" style="height: 88rpx;width:100%" ></image>
+        <image src="{{serverImg}}/ziti_p.png" wx:if="{{ziti==2}}" style="height: 88rpx;width:100%"></image>
+      </view>
+      <view class="flex-1" bindtap="clickDelivery">
+        <image src="{{serverImg}}/songhuo_n.png" wx:if="{{songhuo==2}}"  style="height: 88rpx;width:100%" ></image>
+        <image src="{{serverImg}}/songhuo_p.png" wx:if="{{songhuo==1}}"  style="height: 88rpx;width:100%"></image>
+      </view>
+    </view>
+  </view>
+
+
+ 
+
+
+  <view class="section">
+    <view class="flex space-between align-items-center peison" wx:if="{{deliveryType==2 && typeflage==true }}" bindtap="chengeAdress"  >
+        <image class="ic"  src="{{serverImg}}/ic_address.png" style="width:50rpx;height:50rpx"></image>
+        <view class="" style="width:{{windowWidth-100}}px">
+          <view >
+            <view class="text-hidden-1" >
+              <text class=" body-base">{{adress.title}}</text>
+            </view>
+            <view class=" body-small ">
+              <text>{{adress.detail}}</text>
+            </view>
+            <view class="">
+              <text class="grey-color body-small">{{adress.contact}}</text>
+              <text class="grey-color body-small">{{item.gender==0?"先生":"女士"}}</text>
+              <text class="grey-color body-small left-10">{{adress.phone}}</text>
+            </view>
+          </view>
+        </view>
+      <image class="ic"  src="{{serverImg}}/ic_go.png" style="width: 27rpx;height:45rpx"></image>
+    </view>
+     <view class="peison" wx:if="{{deliveryType==2 && typeflage==false }}">
+      <navigator url="/pages/address/select/index">
+        <view class="flex space-between align-items-center songhuo ">
+          <view class="address-name " bindtap="sendOut" style="width:{{windowWidth-100}}px">
+            <view >
+              <view class="text-hidden-1" >
+                <text class=" body-base ">选择收货地址</text>
+              </view>
+            </view>
+          </view>
+          <image class="ic"  src="{{serverImg}}/ic_go.png" style="width: 27rpx;height:45rpx"></image>
+        </view>
+      </navigator>
+    </view> 
+    <!-- <view class="peison"  wx:if="{{deliveryType==2}}">
+      <view class="flex space-between align-items-center ">
+        <image class="ic" style="width: 40rpx; height: 40rpx;"  src="{{serverImg}}/liji.png"></image>
+        <view class="flex-1" bindtap="sendOut" style="width:{{windowWidth-100}}px">
+            <view class="text-hidden-1" >
+              <text class=" ">立即送出</text>
+              <text class="red-color" >(大约15:56送达)</text>
+            </view>
+        </view>
+        <image class="ic"  src="{{serverImg}}/ic_go.png" style="width: 27rpx;height:45rpx"></image>
+      </view>
+    </view> -->
+  </view>
+ 
+  <view class="pick-goods">
+    <image src="../../images/bianlidian.png" style="width: 45rpx; height: 45rpx;margin-right:10rpx;"  ></image>
+    <text class="title">思埠便利店</text>
+  </view>
+
+  <view  class="goods-bg">
+    <block wx:for="{{goods}}"  wx:key="id"  >
+      <view class="dish-item">
+        <view class="dish-item-wrp">
+          <navigator url="/pages/commodityDetails/index?id={{item.id}}">
+            <image class="image" src="{{item.imageUrl}}" style="width: 128rpx; height: 128rpx;"  />
+          </navigator>
+          <view class="dish-item-info flex-1">
+            <view class="text-hidden-2">
+              <text class="dish-item-name body-base">{{item.goodsName}}</text>
+            </view>
+            <view class="dish-pi">
+                <text class="body-base  grey-color">X {{item.number}}</text>
+                <text class="body-base right">￥ {{item.price}}</text>
+            </view>
+            
+          </view>
+         
+        </view>
+      </view>                   
+    </block>
+  </view>
+  <view class="section">
+     <view class="flex space-between align-items-center peison">
+        <view class="submit-s1">
+          <text>配送费</text>
+        </view>
+        <view class="submit-s2">
+          <text>￥{{shopInfo.deliverFee}}</text> 
+        </view>
+      </view>
+      <view class="xiao-ji peison">
+        <text>小计</text>
+        <text class="all-money">￥{{allmoney+shopInfo.deliverFee}}</text>
+    </view>
+  </view>
+ 
+  <view class="section">
+    <view class="flex space-between align-items-center peison" wx:key="{{index}}" wx:for="{{pay}}" data-item="{{item}}" bindtap="checkToClick">
+      <view class="classname">
+        <text>{{item.name}}</text>
+      </view>
+      <view class="classname" >
+        <image wx:if="{{check!=item.payType}}"    src="../../images/choose_n.png" style="width: 36rpx; height: 36rpx;"  ></image>
+        <image wx:if="{{check==item.payType}}"    src="../../images/choose_p.png"style="width: 36rpx; height: 36rpx;"></image>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+
+<view class="flex footer-b">
+    <view class="flex-2 end-moey">
+      <text>实付款：</text>
+      <text class="price-t">￥{{allmoney+shopInfo.deliverFee}} </text>
+    </view>
+    <view >
+      <button  class="clearing" formType="submit" >
+        提交订单
+      </button >
+    </view>
+</view>
+</form>

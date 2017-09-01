@@ -1,0 +1,21 @@
+<!--index.wxml-->
+<view class="register-form">
+  <form >
+    <view class="register-add-item flex align-items-center">
+      <image src="../../images/lo_phone.png" class="r-icon" mode="widthFix"></image>
+      <input type="number" class="flex-1" value="{{phone}}"  name="phone"   bindinput="changeImput" data-name="phone" placeholder="请输入手机号"/>
+    </view>
+    <view class="register-add-item flex align-items-center">
+      <image src="../../images/lo_code.png" class="r-icon" mode="widthFix"></image>
+      <input type="number" class="flex-1" value="{{phone}}"  name="phone"   bindinput="changeImput" data-name="phone" placeholder="请输入验证码"/>
+      <view class="btn-default code-btn">获取验证码</view>
+    </view>
+    <view class="register-add-item flex align-items-center">
+      <image src="../../images/lo_pass.png" class="r-icon" mode="widthFix"></image>
+      <input type="paddword" class="flex-1" value="{{phone}}"  name="phone"   bindinput="changeImput" data-name="phone" placeholder="请设置6-20位密码"/>
+    </view>
+    <view class="register-add-save">
+      <view class="btn-default btn-red btn-block" >保存</view>
+    </view>
+  </form>
+</view>

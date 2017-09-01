@@ -1,0 +1,124 @@
+<!--index.wxml-->
+<view class="order-detail-content" >
+  <!--订单状态-->
+  <view class="o-detail-top" wx:if="{{orderList.status==7}}">
+    <view class="o-d-line"></view>
+    <view class="o-d-line"></view>
+    <view class="o-detail-info">
+      <text class="odt1">{{orderList.statusText}}</text>
+      <text class="odt2">支付超时，订单已取消</text>
+      <text class="btn-order btn-default" bindtap="nextPage">看看其它商品</text>
+    </view>
+  </view>
+  <!--订单状态-->
+  <view class="o-detail-top" wx:if="{{orderList.status==5}}" >
+    <view class="o-d-line"></view>
+    <view class="o-d-line"></view>
+    <view class="o-detail-info">
+      <!-- <text class="odt1">商家已接单</text> -->
+      <text class="odt2">{{orderList.statusText}}</text>
+      <!-- <text class="btn-order btn-default" bindtap="cancelOrder">取消订单</text> -->
+      <text class="btn-order btn-default btn-disable" bindtap="Reminder">催单</text>
+      <text class="btn-order btn-default btn-red" bindtap="confirmReceipt">确认收货</text>
+      <view class="o-small">
+      （后台设置：5分钟内买家可随时点击取消订单，30分钟后才可点击催单）
+      </view>
+    </view>
+  </view>
+  <!--订单商品-->
+  <view class="o-detail-top" wx:if="{{orderList.status==1 || (orderList.shipType==0 && orderList.status==2)}}">
+    <view class="o-detail-info">
+      <view class="odt1">{{orderList.statusText}}</view>
+      <view class="odt2">请在15分钟内完成支付,超时将自动取消</view>
+
+      <view class="flex align-items-center justify-content o-datail-witer ">
+        <image src="../../images/liji.png" style="width: 40rpx; height: 40rpx;"></image>
+        <text class="grey body-small">等待支付：{{time}}</text>
+      </view>
+      <text class="btn-order btn-default" bindtap="cancelOrder">取消订单</text>
+      <text class="btn-order btn-default btn-red" bindtap="goPay" wx:if="{{orderList.payType!=0}}">立即支付</text>
+    </view>
+  </view>
+  <!--订单商品-->
+  <view class="o-detail-pro">
+    <view class="o-detail-t">
+      <view class="order-list">
+        <view class="o-list-item" >
+          <view class="o-list-title">
+            <image class="t-img" src="../../images/cart.png" mode="widthFix"></image>
+            <text class="t-name">{{orderList.shopName}}</text>
+          </view>
+           <view  class="goods-bg">
+            <block wx:for="{{orderList.goods}}" wx:for-item="product" wx:key='proid' >
+              <view class="dish-item">
+                <view class="dish-item-wrp">
+                  <navigator url="/pages/commodityDetails/index?id={{product.id}}">
+                    <image class="image" src="{{product.imgUrl}}" style="width: 128rpx; height: 128rpx;"  />
+                  </navigator>
+                  <view class="dish-item-info flex-1">
+                    <view class="text-hidden-2">
+                      <text class="dish-item-name body-base">{{product.goodsName}}</text>
+                    </view>
+                    <view class="dish-pi">
+                        <text class="body-base  grey-color">X {{product.quantity}}</text>
+                        <text class="body-base right">￥ {{product.price}}</text>
+                    </view>
+                    
+                  </view>
+                
+                </view>
+              </view>                   
+            </block>
+          </view> 
+        </view>
+      </view>
+    </view>
+    <view class="o-detail-item">
+      <text class="it-title">配送费</text>
+      <text class="right small">￥{{orderList.freight}}</text>
+    </view>
+    <view class="o-detail-item clearfix">
+      <view class="right it-title">
+        <text class="">小计</text>
+        <text class="it-price right">￥{{orderList.totalMoney}}</text>
+      </view>
+    </view>
+    <view class="o-detail-item clearfix center" bindtap="callPhone">
+      <image src="../../images/phone.png" class="d-phone" mode='widthFix'></image>
+      <text class="d-seller">电话商家</text> 
+    </view>
+  </view>
+  <!--订单信息-->
+  <view class="o-detail-bottom">
+    <view class="info-item">
+      <text class="i-label">期望时间</text>
+      <text class="i-text">立即配送</text>
+    </view>
+    <view class="info-item">
+      <text class="i-label">配送地址</text>
+      <text class="i-text 1">{{orderList.address}}</text>
+    </view>
+    <view class="info-item">
+      <text class="i-label"></text>
+      <text class="i-text">{{orderList.contact}}  {{orderList.phone}}</text>
+    </view>
+    <view class="info-item">
+      <text class="i-label">配送服务</text>
+      <text class="i-text">由商家提供配送服务</text>
+    </view>
+  </view>
+  <view class="o-detail-bottom">
+    <view class="info-item">
+      <text class="i-label">订单单号</text>
+      <text class="i-text">{{orderList.orderCode}}</text>
+    </view>
+    <view class="info-item">
+      <text class="i-label">订单时间</text>
+      <text class="i-text">{{orderList.createDt}}</text>
+    </view>
+    <view class="info-item">
+      <text class="i-label">支付方式</text>
+      <text class="i-text">{{orderList.payTypeStr}}</text>
+    </view>
+  </view>
+</view>

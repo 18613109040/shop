@@ -1,0 +1,101 @@
+<view class="content">
+ 
+  <view class="classname"  wx:if="{{cityselect==true}}">
+    <view class="searchLetter touchClass">
+      <view wx:for="{{searchLetter}}" style="height:{{itemH}}px" wx:key="index" data-letter="{{item.name}}" catchtouchstart="searchStart" catchtouchmove="searchMove" catchtouchend="searchEnd">{{item.name}}</view>
+    </view>
+    <block wx:if="{{isShowLetter}}">
+      <view class="showSlectedLetter">
+        {{showLetter}}
+      </view>
+    </block>
+    <scroll-view class="clear" scroll-y="true" style="height:{{winHeight}}px" bindscroll="bindScroll" scroll-top="{{scrollTop}}">
+      <view class="selection" wx:for="{{cityList}}" wx:key="{{item.initial}}">
+        <view class="item_letter">{{item.initial}}</view>
+        <view class="item_city" wx:for="{{item.cityInfo}}" wx:for-item="ct" wx:key="{{ct.id}}" data-city="{{ct.city}}" bindtap="bindCity">
+        {{ct.city}}  
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="top-search"  wx:if="{{cityselect==false}}" >
+    <view class="float-left city text-hidden-1" bindtap="cityClick">{{city}}<rich-text name="span" class="ic_tran"></rich-text></view>
+    <view class="lingth-l">
+      <icon type="search" size="16" class="icon-serch"/>
+      <input  bindinput="bindAddressInput" placeholder="请输入地址" value="{{address}}" class="input-s"/>  
+    </view>
+  </view>
+
+  
+  <scroll-view wx:if="{{result.length>0}}" scroll-y style="height: {{winHeight}}-120rpx" >
+    <block wx:for="{{result}}" wx:key="id"  >
+      <view class="result" bindtap="clickSuchAdress" data-name="{{item}}">
+        <view class="result-title body-base">{{item.title}}</view>
+        <view class="result-adderss body-sm grey-color">{{item.address}}</view>
+      </view>
+    </block>
+  </scroll-view>
+
+
+
+  <scroll-view class="scroll-view_H" scroll-y style="width: 100%" wx:if="{{result.length==0&&resultPage==0}}">
+    <view class="tip">选择您附近的小店</view>
+    <block  wx:for-index="id"  wx:for="{{adressData}}" wx:key="id" >
+      <view class="shop-items" wx:if="{{selectindex!=id}}" bindtap="selectTab" data-id="{{id}}">
+        <view class="title-name">
+            <text class=" black-color">{{item.name}}</text>
+        </view>
+        <view class="flex shop-2">
+          <view class="classname">
+            <image class="ic-address"  src="{{serverImg}}/dingwei.png"></image>
+          </view>
+          <view class="item-address-change body-small text-hidden-2 flex-1">{{item.address}}</view>
+          <view class="end-c">
+            <text class="">{{item.distance}}</text> 
+            <!-- <text class="body-base grey-color">公里</text> -->
+          </view>
+        </view>
+        
+      </view>
+
+      <view class="add-items" wx:if="{{selectindex==id}}" >
+        <view class="flex shop">
+          <view class="">
+            <image class="shopIcon" src="{{item.shopIcon}}" ></image>
+          </view>
+          <view class="flex-1 left-10">
+            <view class="shop-name "><text>{{item.name}}</text></view>
+            <view class="shopde">
+              <text class="shop-time body-sm">店家自送-{{item.duration}}分钟/</text>
+              <text class="shop-juli body-sm grey-color">高峰期除外</text>
+            </view>
+            <view class="shopde">
+              <text class="body-sm grey-color"></text>
+              <text class="body-sm grey-color">{{item.businessTypeStr}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="flex shop-1">
+          <view class="classname">
+            <image class="ic-address"  src="{{serverImg}}/universal_location_red.png"></image>
+          </view>
+          <view class="item-address-change body-small text-hidden-2 flex-1">{{item.address}}</view>
+          <view class="end-c">
+            <text class="distance-change">{{item.distance}}</text> 
+            <!-- <text class="body-base grey-color">公里</text> -->
+          </view>
+        </view>
+        <view class="btn-red jingru" data-name="{{item}}" bindtap="redirectToHome">
+          进入店铺
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+ 
+</view>
+
+<view  wx:if="{{result.length==0&&resultPage==1}}" class="empty-content">
+    <image src="../../../images/no1.png" class="empty-image"></image>
+    <text class="text">亲，当前地址暂未开通服务，敬请期待</text>
+    <view class="classname"> <button type="primary" class="btn" >切换地址</button></view>
+</view>

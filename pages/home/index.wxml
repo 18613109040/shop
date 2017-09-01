@@ -1,0 +1,172 @@
+<!--index.wxml-->
+<view class="index-body">
+  <view class="flex align-items-center a-top">
+    <view class="name-d text-hidden-1" bindtap="changeAdress">
+      <image src="{{serverImg}}/ic_w_address.png" class="icon-address"></image>
+      <text class="text-address">{{address}}</text>
+      <image src="{{serverImg}}/ic_w_arrow.png" class="arrow"></image>
+      
+    </view>
+    <view class="flex-6">
+      <navigator url="/pages/search/index" class="search-navigator">
+        <icon type="search" size="15" class="icon-search" />
+        <input class="search-in" placeholder="请输入商品名称" disabled="true" />
+      </navigator>
+    </view>
+  </view>
+  <swiper class="swiper" autoplay="true" interval="5000" indicator-dots="true" circular="true" duration="1000" indicator-color="#e8e8e8" indicator-active-color="#a9dd3c">
+    <block wx:for="{{carousel}}" wx:key="unique">
+      <swiper-item>
+        <image src="{{item.imgUrl}}" class="slide-image" bindtap="carouselLink" data-item="{{item}}" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <navigator url="/pages/shopInfo/index">
+    <view class="flex shop justify-content">
+      <view class="classname">
+        <image style="width:128rpx; height: 128rpx;" src="{{shopInfo.shopIcon}}" class="goods-img"></image>
+      </view>
+      <view class="flex-1 left-10">
+        <view class="shop-name "><text>{{shopInfo.name}}</text></view>
+        <view class="shop-info">
+          <text class="shop-time">店家自送-{{shopInfo.duration}}分钟</text>
+          <text class="shop-juli grey-color">距离{{shopInfo.distance}}</text>
+        </view>
+        <view class="shop-dan">
+           <text class="grey-color">月销1单</text> 
+          <text class="grey-color right-text">起送￥{{shopInfo.minimum}}，配送￥{{shopInfo.deliverFee}}元</text>
+        </view>
+        <view class="shop-join flex align-items-center">
+          <image src="../../images/home_announcement_red.png" style="width: 33rpx; height: 36rpx;" class="shop-image-icon"></image>
+          <text class="grey-color text-hidden-1">{{shopInfo.notice}}</text>
+        </view>
+      </view>
+    </view>
+  </navigator>
+
+  <view class="index-nav">
+    <block wx:for="{{navs}}" wx:key="unique">
+      <view class="nav-item" bindtap="linktocla" data-item="{{item}}">
+        <view class="nav-icon">
+         <image src="{{item.imgUrl}}"  style="width: 112rpx; height: 112rpx;" />
+        </view>
+        <text class="nav-text">{{item.categoryName}}</text>
+      </view>
+    </block>
+  </view>
+
+
+  <view class="renmen">
+    <block>
+      <rich-text class="l-line">——</rich-text><text>热门商品</text>
+      <rich-text class="r-line">——</rich-text>
+    </block>
+  </view>
+  <view class="fill-content">
+    <scroll-view scroll-y bindscrolltolower="scrollLower">
+      <block wx:for="{{goods}}" wx:key="id">
+        <view class="dish-item">
+          <view class="dish-item-wrp">
+            <view class="dish-item-pic" bindtap="toDetails" data-id="{{item.id}}">
+              <image class="image" src="{{item.imageUrl}}" style="width: 170rpx; height: 170rpx;" />
+            </view>
+            <view class="dish-item-info">
+              <view class="text-hidden-2" bindtap="toDetails" data-id="{{item.id}}">
+                <text class="dish-item-name body-small">{{item.goodsName}}</text>
+              </view>
+              <view class="classname">
+                <text class="body-sm grey-color">月销{{item.goodsSalenum}}</text>
+              </view>
+              <view class="v-g1">
+                <text class="goods-price">¥{{item.price}}</text>
+              </view>
+              <view class="v-g2">
+                <text class="goods-stock">库存：{{item.goodsStock}}</text>
+              </view>
+            </view>
+            <!--选择数量or规格 begin-->
+            <view class="dish-item-choose">
+              <view class="dish-item-count" wx:if="{{item.multiKinds==1}}">
+                <text class="xuan-gui-ge" bindtap="powerDrawer" data-statu="open" data-name="{{item}}">选规格</text>
+              </view>
+
+              <view class="dish-item-count" wx:if="{{item.multiKinds==0}}">
+                <view class="dish-item-tab">
+                  <view hidden="{{item.number == 0}}" class="dish-item-count-minus" data-id="{{item.id}}" data-cid="{{item.id}}" bindtap="minusCount">
+                    <image class="image" style="width: 48rpx; height:48rpx;" src="../../images/countMinus.png" />
+                  </view>
+                </view>
+                <view class="dish-item-count-text dish-item-tab" hidden="{{item.number==0}}">
+                  <text>{{item.number}}</text>
+                </view>
+                <view class="dish-item-tab" data-id="{{item.id}}" hidden="{{item.number > item.sales}}" data-cid="{{item.id}}" bindtap="addCount">
+                  <image class="image" style="width: 48rpx; height: 48rpx;" src="../../images/countSelAdd.png" />
+                </view>
+              </view>
+            </view>
+            <!--选择数量or规格 end-->
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+
+</view>
+
+<!--弹出层 -->
+<view class="classname">
+  <view class="drawer_screen" catchtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+  <view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
+    <view class="drawer_title ">
+      <view class="name">
+        <text class="body-base">{{modelData.goodsName}}</text>
+      </view>
+      <view class="x-calnel" catchtap="powerDrawer" data-statu="close">
+        <image src="../../images/popup_Close_black.png" style="width: 60rpx; height: 60rpx;"></image>
+      </view>
+    </view>
+    <view class="drawer_content">
+      <view class="drawer-body">
+         <block  wx:for="{{goodsSkuList.skulist}}" wx:key="{{index}}">
+          <view class="guige-name">
+            <text>{{item.name}}</text>
+          </view>
+          <view class="gui_ge">
+            <block wx:for="{{item.value}}" wx:for-item="name" wx:key="{{index}}">
+              <text class="rang-change" data-type="{{item.name}}" wx:if="{{name.check==true}}" data-name="{{name.title}}" bindtap="clickSku">{{name.title}}</text>
+              <text class="rang" data-type="{{item.name}}" wx:if="{{name.check==false}}" data-name="{{name.title}}" bindtap="clickSku">{{name.title}}</text>
+            </block>
+          </view>
+        </block>
+      </view>
+     
+    </view>
+    <view class="drawer_footer flex align-items-center space-between " wx:if="{{goodsSkuList.noshop==false}}">
+      <view class="classname">
+        <text class="money">￥{{goodsSkuList.price}}</text>
+        <text class="wight">(库存：{{goodsSkuList.skuStock}})</text>
+      </view>
+      <view class="add_cart" wx:if="{{goodsSkuList.number==0}}">
+        <text class="body-small" bindtap="addCart">加入购物车</text>
+      </view>
+      <view class="dish-item-count" wx:if="{{goodsSkuList.number>0}}">
+        <view class="dish-item-tab">
+          <view hidden="{{goodsSkuList.number == 0}}" class="dish-item-count-minus" bindtap="skuMinusCount">
+            <image class="image" style="width: 60rpx; height: 60rpx;" src="../../images/countMinus.png" />
+          </view>
+        </view>
+        <view class="dish-item-count-text dish-item-tab" hidden="{{item.number==0}}">
+          <text>{{goodsSkuList.number}}</text>
+        </view>
+        <view class="dish-item-count-plus" hidden="{{goodsSkuList.number >= goodsSkuList.skuStock}}" bindtap="skuAddCount">
+          <image class="image" style="width: 60rpx; height: 60rpx;" src="../../images/countSelAdd.png" />
+        </view>
+      </view>
+    </view>
+    <view class="drawer_footer flex align-items-center " wx:if="{{goodsSkuList.noshop==true}}">
+      <view class="classname">
+        <text>该型号无货</text>
+      </view>
+    </view>
+  </view>
+</view>

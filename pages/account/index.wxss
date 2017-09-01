@@ -1,0 +1,93 @@
+/* index.wxss */
+
+.account-header{
+  position: relative;
+  background: #fff;
+}
+ .account-con{
+  padding:15px;
+  background: #FF004C;
+} 
+.account-h-image{
+  display: inline-block;
+  margin:0 auto ;
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  float:left;
+  border:4rpx solid #fff;
+  color: #fff;
+  
+}
+.account-h-name{
+  display: inline-block;
+  /* text-align: center; */
+  color: #fff;
+  font-size: 16px;
+  padding: 22px 0 0 15px;
+
+}
+.account-menu{
+  position: absolute;
+  background-color: #fff;
+  height: 78px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.11);
+  border-radius: 2px;
+  margin:0 5%;
+  bottom: -39px;
+  width:90%;
+}
+.account-menu .menu{
+  width:33.33333%;
+  text-align: center;
+  display: inline-block
+}
+.account-menu .menu .img{
+  display: block;
+  width:30px;
+  height:30px;
+  margin:0 auto;
+  padding:14px 0px 5px;
+}
+.account-menu .menu .text{
+  font-size:14px;
+  color:#2E2E2E;
+}
+
+.account-list{
+  border-top:1px solid #eaeaea;
+   margin-top: 10px; 
+  background-color: #fff;
+}
+.account-list .item{
+  padding:11px 15px;
+  background-color: #fff;
+  border-bottom:1px solid #eaeaea;
+  line-height: 16px;
+}
+.account-list .item .icon{
+  width:20px;
+  height:20px;
+  float: left;
+  margin-right:10px;
+}
+.account-list .item text{
+  font-size: 14px;
+  line-height: 20px;
+  color: #2e2e2e;
+}
+.account-list .item .arrow{
+  width:16px;
+  height:16px;
+  float: right;
+  margin-top: 2px;
+}
+
+.ac-logout{
+  margin-top: 20px;
+  text-align: center;
+  font-size: 15px;
+  color: #000;
+  padding:15px 0;
+  background-color: #fff;
+}

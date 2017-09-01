@@ -1,0 +1,27 @@
+<!--index.wxml-->
+<view class="pay-header">
+  <view class="pay-image">
+    <image src="../../images/pay_suc.png" mode="widthFix"></image>
+  </view>
+  <view class="pay-text">
+    <text>支付方式:</text>
+    <text class="p-red">微信支付</text>
+  </view>
+  <view class="pay-text">
+    <text>订单金额:</text>
+    <text class="p-red">￥56409</text>
+  </view>
+</view>
+<view class="margin20 pay-btns flex">
+  <view class="flex-1 btn-default btn-block">
+    查看订单
+  </view>
+  <view class="flex-1 btn-default btn-block">
+    回首页
+  </view>
+</view>
+<view class="pay-info">
+  <text>
+    注意：本平台及销售商不会以订单异常、系统升级为由要求您点击任何网址链接进行退款操作。
+  </text>
+</view>

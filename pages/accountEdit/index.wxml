@@ -1,0 +1,34 @@
+<!--index.wxml-->
+<view class="edit-header">
+  <image src="{{userInfo.avatarUrl}}" mode='widthFix' bindtap='onClickImage'></image>
+  <text>添加头像</text>
+</view>
+<form bindsubmit="formSubmit">
+  <view class="edit-form">
+    
+      <view class="edit-add-item flex">
+        <label>昵称</label>
+        <input  class="flex-1" value="{{userInfo.nickName}}"  name="nickName"   placeholder="请输入用户名"/>
+      </view>
+      <view class="edit-add-item flex">
+        <label>性别</label>
+        <radio-group class="radio-group" name="gender" bindchange="radioChange">
+          <label class="radio" >
+            <radio value="0" checked="{{userInfo.gender == 0}}"/>男
+          </label>
+          <label class="radio">
+            <radio value="1" checked="{{userInfo.gender != 0}}"/>女
+          </label>
+        </radio-group>
+      </view>
+  </view>
+  <view class="margin20">
+    <button  class="btn-default btn-red btn-block"  formType="submit" >保存</button>
+  </view>
+</form>
+<action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetChange">
+    <block wx:for="{{actionSheetItems}}" wx:key="{{index}}">
+      <action-sheet-item class="item" bindtap="bindTap" data-name="{{item}}">{{item}}</action-sheet-item>
+    </block>
+    <action-sheet-cancel class="cancel">取消</action-sheet-cancel>
+</action-sheet>

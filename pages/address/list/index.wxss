@@ -1,0 +1,57 @@
+.item-s{
+  padding: 20rpx;
+  border-bottom: 1px solid #EAEAEA;
+  background: white ;
+  position: relative;
+  
+}
+.item-s.unavaible{
+  color: #999;
+}
+
+.item-s .unImg{
+  display: none;
+  width: 128rpx;
+  height: 128rpx;
+  position: absolute;
+  right: 130rpx;
+  top:16rpx;
+  z-index: 99;
+}
+.item-s.unavaible .unImg{
+  display: inline-block;
+}
+.eidt-h{
+  border-left: 1px solid #ddd;
+  padding-left: 30rpx;
+}
+.addres-name{
+  margin-top: 10rpx;
+}
+.phone{
+  margin-left: 20rpx;
+}
+.address-add-save{
+  height: 88rpx;
+  align-items:center;
+  left: 0;
+  bottom: 0px;
+  display: -webkit-flex;
+  position:fixed;
+  width: 100%;
+  background: white;
+  text-align: center;
+  border-top: 1px solid  #FF5E5E;
+}
+
+.address-add-save-btn{
+  background: #FF004C;
+  width: 100%;
+  color: white;
+  border-radius: 0px;
+} 
+.address-add-save .ic-add{
+  vertical-align: middle;
+  margin-right: 10rpx;
+  margin-top: -8rpx;
+}

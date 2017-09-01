@@ -1,0 +1,48 @@
+<view class="classname"  wx:if="{{showNoPage==false}}">
+  <view class="classname">
+    <block wx:for="{{list}}"  wx:key="id">
+      <view class="flex align-items-center space-between item-s ">
+        <view class="flex-1 body-m">
+          <view class="">
+            <text>{{item.contact}}</text>
+            <text class="phone">{{item.gender==0?"先生":"女士"}}</text>
+            <text class="phone">{{item.phone}}</text>
+          </view>
+          <!-- <view class="body-small">{{item.province}} {{item.city}} {{item.area}}</view> -->
+          <view class="addres-name">
+             <rich-text class="body-small" name="div"> {{item.title}}</rich-text>
+             <rich-text class="body-small" name="div">{{item.address}}</rich-text>
+          </view>
+        </view>
+        <view class="eidt-h" bindtap="onClick" data-id="{{item.id}}">
+          <image src="{{serverImg}}/address_eidt.png" style="width:60rpx; height: 60rpx;" ></image>
+        </view>
+        <image src="../../../images/ic_nopeisong.png" class="unImg"></image>
+      </view>
+    </block>
+  </view>
+
+
+  <navigator class="address-add-save" url="/pages/address/add/index">
+      <button class="address-add-save-btn   " formType="submit">
+        <image src="{{serverImg}}/address_add.png" class="ic-add" style=" width: 40rpx; height: 40rpx;"></image>新增地址
+      </button>
+  </navigator>
+  <action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetChange">
+    <block wx:for="{{actionSheetItems}}" wx:key="unique">
+      <action-sheet-item class="item" bindtap="bindTap" data-name="{{item}}">{{item}}</action-sheet-item>
+    </block>
+    <action-sheet-cancel class="cancel">取消</action-sheet-cancel>
+  </action-sheet>
+</view>
+
+<view class="classname"  wx:if="{{showNoPage==true}}" class="empty-content">
+    <image src="../../../images/no3.png" class="empty-image"></image>
+    <text class="text">亲，你还没有收货地址，去添加一个吧</text>
+    <view class="classname"> 
+      <navigator url="/pages/address/add/index">
+        <button type="primary" class="btn" >添加地址</button>
+      </navigator>
+    </view>
+   
+</view>

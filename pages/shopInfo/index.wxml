@@ -1,0 +1,57 @@
+<view class="contaner">
+  <view class="flex section top">
+    <view class="classname">
+      <image src="{{shopinfo.shopIcon}}" class="shopimg" ></image>
+    </view>
+    <view class="classname">
+      <view class="shopName text-hidden-1">
+        <text>{{shopinfo.name}}</text>
+      </view>
+      <view class="shopAddress text-hidden-2">
+        <text>{{shopinfo.address}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="classname">
+    <map style="width: 100%; height: 200px;" markers="{{markers}}"  longitude="{{shopinfo.longitude}}" latitude="{{shopinfo.latitude}}"  />
+  </view>
+  <scroll-view class="recommend_scroll_x_box" scroll-x="true">
+      <view class="recommend_hot_box" wx:for="{{imageList}}" wx:key="{{index}}">
+        <image src="{{item.imgUrl}}" class="recommend_hot_image" mode="scaleToFill" ></image>
+      </view>
+  </scroll-view>
+  <view class="section">
+    <view class="item">
+      <image src="../../images/leixing.png" class="ic"></image>
+      <text class="s1">店铺类型</text>
+      <text>{{shopinfo.businessTypeStr}}</text>
+    </view>
+    <view class="item">
+      <image src="../../images/shop-pone.png" class="ic"></image>
+      <text class="s1">联系电话</text>
+      <text>{{shopinfo.phone}}</text>
+    </view>
+  </view>
+  
+  <view class="section">
+    <view class="item">
+      <image src="../../images/peisong.png" class="ic"></image>
+      <text class="s1">配送服务</text>
+      <text>店铺自己配送</text>
+    </view>
+    <view class="item">
+      <image src="../../images/peisongtime.png" class="ic"></image>
+      <text class="s1">配送时间</text>
+      <text>{{shopinfo.openingTime}}-{{shopinfo.closingTime}}</text>
+    </view>
+  </view>
+ 
+  <view class="section">
+    <view class="item gray">公告</view>
+    <view class="item">
+      <view class="body-m">
+        <text>{{shopinfo.notice}}</text>
+      </view>
+    </view>
+  </view>
+</view>

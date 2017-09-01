@@ -1,0 +1,74 @@
+<!--index.wxml-->
+
+<view class="search-content">
+  <!-- 搜索区域 -->
+  <view class="flex space-between top-search">
+    <view class="flex-1">
+      <view  class="search-navigator gray-bg">
+       <icon type="search" size="15" class="icon-search" />
+       <input class="search-in" bindinput="onInputSearch" value="{{searchKey}}" placeholder="请输入关键字搜索" />
+      </view>
+    </view>
+    <view class="search-btn">
+      <button class="btn" type="default" size="mini"  bindtap='onSearch' > 搜索 </button>
+    </view>
+  </view>
+  <view class="classname"  wx:if="{{resultstatus==1}}">
+    <!-- 热搜 -->
+    <view class="hot-content">
+      <view class="hot-t"><text>热搜</text></view>
+      <view class="clearfix hot-list">
+        <view class="btn-default hot-btn left" wx:for="{{hotList}}" wx:key="{{item.key}}" bindtap="clickhis" data-name="{{item.text}}">
+          {{item.text}}
+        </view>
+      </view>
+    </view>
+    <!--历史搜索-->
+    <view class="his-content" wx:if="{{hisList.length}}">
+      <view class="his-item title"><text class="grey">最近搜索</text></view>
+      <view class="his-item" wx:for="{{hisList}}" wx:key="{{item.key}}" bindtap="clickhis" data-name="{{item.text}}">
+        <text>{{item.text}}</text>
+      </view>
+    </view>
+    <view class="his-clear center" wx:if="{{hisList.length}}">
+      <view class='btn-default' bindtap="onClearHis">
+        <image src="../../images/search_clear_black@2x.png" class="icon-delete"/><text>清空最近搜索</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 搜索结果 -->
+  <view class="search-result" wx:if="{{resultstatus==2 }}" >
+    <scroll-view scroll-y style="height: {{windowHeight-54}}px;"   bindscrolltolower="scrollLower">
+      <block wx:for="{{goods}}" wx:key="id">
+        <view class="dish-item" bindtap="goToShop" data-id="{{item.id}}" >
+          <view class="dish-item-wrp">
+            <view class="dish-item-pic" bindtap="toDetails" data-id="{{item.id}}">
+              <image class="image" src="{{item.imageUrl}}" style="width: 170rpx; height: 170rpx;" />
+            </view>
+            <view class="dish-item-info" >
+              <view class="text-hidden-2" bindtap="toDetails" data-id="{{item.id}}" >
+                <text class="dish-item-name body-small">{{item.goodsName}}</text>
+              </view>
+              <view class="classname">
+                <text class="body-sm grey-color">月销{{item.goodsSalenum}}</text>
+              </view>
+              <view class="v-g1">
+                  <text class="goods-price">¥{{item.price}}</text>
+              </view>
+              <view class="v-g2">
+                  <text  class="goods-stock">库存：{{item.goodsStock||0}}</text>
+              </view>
+            </view>
+            
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+
+  <view class="classname" wx:if="{{resultstatus==3}}" >
+    <text>没有数据</text>
+  </view>
+  
+</view>

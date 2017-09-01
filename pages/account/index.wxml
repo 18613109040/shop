@@ -1,0 +1,61 @@
+<view class="classname"  >
+  <view class="account-header">
+    <navigator url='/pages/accountEdit/index' wx:if="{{login==true}}" >
+      <view class="account-con clearfix">
+        <image class="account-h-image" mode='widthFix' src="{{userInfo.avatarUrl}}"></image>
+        <text class="account-h-name">{{userInfo.nickName}}</text>
+      </view>
+    </navigator>
+     <view class="account-con clearfix" wx:if="{{login==false}}" bindtap="loginSys">
+        <image class="account-h-image" mode='widthFix' src="{{userInfo.avatarUrl}}"></image>
+        <text class="account-h-name" >您还没有登陆/点击登陆</text>
+      </view>
+  </view>
+  <view class="account-list">
+    <view class="item" bindtap="nextPage" data-next-key='all' wx:if="{{login==true}}" >
+      <image mode="widthFix" class="icon" src="../../images/ac_order.png"></image>
+      <text>我的订单</text>
+      <image mode="widthFix" class="arrow" src="../../images/ic_go2.png"></image>
+    </view>
+    <navigator url="/pages/address/list/index" wx:if="{{login==true}}" >
+      <view class="item">
+        <image mode="widthFix" class="icon" src="../../images/ac_address.png"></image>
+        <text>收货地址</text>
+        <image mode="widthFix" class="arrow" src="../../images/ic_go2.png"></image>
+      </view>
+    </navigator>
+    <view class="item" wx:if="{{login==true}}" >
+      <image mode="widthFix" class="icon" src="../../images/ac_3.png"></image>
+      <text>意见反馈</text>
+      <image mode="widthFix" class="arrow" src="../../images/ic_go2.png"></image>
+    </view>
+     <view class="item">
+      <image mode="widthFix" class="icon" src="../../images/ac_feel.png"></image>
+      <text>在线客服</text>
+      <image mode="widthFix" class="arrow" src="../../images/ic_go2.png"></image>
+    </view>
+     <view class="item">
+      <image mode="widthFix" class="icon" src="../../images/ac_2.png"></image>
+      <text>客服热线</text>
+      <image mode="widthFix" class="arrow" src="../../images/ic_go2.png"></image>
+    </view>
+     <view class="item">
+      <image mode="widthFix" class="icon" src="../../images/ac_1.png"></image>
+      <text>常见问题</text>
+      <image mode="widthFix" class="arrow" src="../../images/ic_go2.png"></image>
+    </view>
+    <!-- <view class="item">
+    <image mode="widthFix" class="icon" src="https://wechat.sibumbg.cn/app/assets/images/icons/ic_list_ip@2x.png"></image>
+    <text>店铺收藏</text> 
+    <image mode="widthFix" class="arrow" src="https://wechat.sibumbg.cn/app/assets/images/icons/ic_list_arrow@2x.png"></image>
+  </view>
+  <view class="item">
+    <image mode="widthFix" class="icon" src="https://wechat.sibumbg.cn/app/assets/images/icons/ic_list_ip@2x.png"></image>
+    <text>商品收藏</text>
+    <image mode="widthFix" class="arrow" src="https://wechat.sibumbg.cn/app/assets/images/icons/ic_list_arrow@2x.png"></image>
+  </view> -->
+  </view>
+  <view class="ac-logout" bindtap="loginOut" wx:if="{{login==true}}">
+    <text>退出账号</text>
+  </view>
+</view>

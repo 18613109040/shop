@@ -1,0 +1,85 @@
+/* order.wxss */
+page{
+  background-color: #fafafa;
+}
+.order-menu{
+  background-color: #fff;
+  height:44px;
+}
+.order-menu .items{
+  text-align: center;
+  width:33.33333%;
+  float: left;
+}
+.order-menu .items text{
+  font-size: 14px;
+  color: #666;
+  display: inline-block;
+  line-height: 44px;
+}
+.order-menu .items.active text{
+  color: #FFB511;
+  line-height: 42px;
+  border-bottom:2px solid #FFB511;
+}
+
+.o-list-item{
+  margin-top:10px;
+  background-color: #fff;
+}
+.o-list-title{
+  background-color: #fff;
+  padding:12px 10px;
+  line-height: 1;
+}
+.o-list-title .ic-delete{
+  height: 60rpx;
+  width: 60rpx;
+}
+.o-list-title .t-img{
+  margin-right: 10rpx;
+  width:20px;
+  height: 20px;
+}
+.o-list-title .t-name{
+  font-size:16px;
+  color: #4a4a4a;
+}
+.o-list-title .t-status{
+  font-size:14px;
+  color: #999;
+  border-right: 2px solid #d8d8d8;
+  padding-right: 20rpx;
+  margin-right: 10rpx;
+}
+.o-pro-right{
+  display: flex;
+  justify-content: flex-end;
+  font-size: 13px;
+  color: #999;
+  padding: 30rpx 20rpx;
+}
+.font-black{
+  color: #151515;
+}
+
+.o-pro-item{
+  margin-top:5px;
+  line-height: 16px;
+}
+.o-list-pro .p-name{
+  font-size: 14px;
+  color: #666;
+}
+.o-list-pro .p-num{
+  font-size: 14px;
+  color: #666;
+  float: right
+}
+.o-list-footer{
+  border-top:1px solid #ddd;
+  padding: 12px 10px;
+}
+.o-list-footer .btn-default{
+  margin-left:10px;
+}

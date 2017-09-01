@@ -1,0 +1,52 @@
+/* index.wxss */
+.register-form{
+  margin-top: 20px;
+  font-size: 16px;
+}
+.register-form input{
+  padding: 10px 0 10px 5px;
+}
+.register-add-item{
+  background-color: #fff;
+}
+.register-add-item+.register-add-item{
+  border-top: 1px solid #ddd;
+}
+.register-add-item .btn-reg{
+  background-color: #fff;
+  color: #ff004c;
+}
+.register-add-item .r-icon{
+  width:30px;
+  margin:0 10px;
+}
+.register-add-save{
+  margin:20px 20px 10px;
+}
+.register-add-save .btn-default{
+  padding:10px;
+  border-radius: 4px;
+}
+.register-add-save .btn-reg{
+  background-color: #fff;
+  color: #ff004c;
+}
+.code-btn{
+  height:15px;
+  margin:5px;
+  background-color: #fff;
+}
+.register-form .btn{
+  margin-right: 10px;
+  font-size: 12px;
+  display: inline-block;
+  height:30px;
+  line-height:30px;
+  background: #fff;
+
+}
+.register-form .tip{
+  color: #999999;
+  font-size: 12px;
+  padding: 0 40rpx;
+}

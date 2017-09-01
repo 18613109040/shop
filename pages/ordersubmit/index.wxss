@@ -1,0 +1,177 @@
+.order{
+  margin-bottom: 88rpx;
+  overflow-x: hidden;
+}
+.submit-type{
+  margin-top: 20rpx;
+}
+.pick-goods{
+  background: white;
+  margin: 20rpx;
+  padding: 20rpx;
+  font-size: 18px;
+  color: #999999;
+  
+}
+.pick-goods .title{
+  font-size: 16px;
+  color: #333;
+}
+.pick-goods image{
+  vertical-align: middle;
+}
+
+.dish-category-title{
+  font-size: 28rpx;
+  color: #888;
+  border-bottom:2rpx solid #ccc;
+  padding: 20rpx 0;
+  margin-bottom: 6rpx;
+}
+
+.menu-footer{
+  height: 100rpx;
+}
+
+.section{
+  background: #fff;
+  margin: 20rpx 20rpx;
+}
+.section .ic{
+  vertical-align: sub;
+  margin-right:10rpx;
+}
+.peison{
+   padding:20rpx;
+  font-size: 16px;
+}
+.peison+.peison{
+   border-top: 1px dashed #EAEAEA;
+}
+.submit-s1{
+  font-size: 14px;
+  color: #333;
+}
+.submit-s2{
+  font-size: 14px;
+  color: #999;
+}
+
+.xiao-ji{
+  display: flex;
+  justify-content:flex-end;
+
+}
+
+.peison .all-money{
+  color: #FF004C ;
+}
+
+.left-10{
+  padding-left: 20rpx;
+}
+
+
+
+
+.dish-item-sales{
+  color: #ccc;
+
+}
+.dish-item-money{
+  color: #E6102C;
+
+}
+.dish-footer{
+  /*background: red;*/
+  height: 100rpx;
+}
+.dish-item-count{
+   display: flex;
+  font-size: 26rpx;
+  padding:89rpx 50rpx 0 0rpx;
+}
+
+
+.dish-item-tab{
+  width: 60rpx;
+  height: 60rpx;
+}
+.dish-item-count-minus{
+  width: 60rpx;
+  height: 60rpx;
+}
+.dish-item-count-text{
+  color: #ccc;
+  font-size: 28rpx;
+  line-height: 60rpx;
+  text-align: center
+
+}
+.dish-item-count-plus{
+  width: 60rpx;
+  height: 60rpx;
+  
+}
+
+.adress{
+  margin: 20rpx 20rpx 0rpx 20rpx;
+  padding: 33rpx;
+  background: white;
+}
+
+
+
+.price-t{
+  color: #E6102C;
+}
+
+.end-moey{
+  text-align: end;
+  margin-right: 30rpx;
+}
+.icon-din{
+  margin-right: 10rpx;
+}
+
+.filter-panel{
+	display: flex;
+	background: #f5f5f5;
+	position: absolute;
+	width: 100%;
+	z-index: 13;
+	overflow: hidden;
+}
+.filter-panel-left,.filter-panel-right{
+	flex: 1;
+	line-height: 80rpx;
+	text-align: center;
+	max-height: 480rpx;
+	overflow-y: auto;
+}
+.filter-panel-left .active{
+	background: #fff;
+}
+.filter-panel-right .active{
+	color: #f7982a;
+}
+.filter-panel-right{
+	background: #fff;
+}
+.filter-panel-right:empty{
+	display: none;
+}
+.filter-shadow{
+	position: absolute;
+	width: 100%;
+	top: 0;
+	bottom: 0;
+	z-index: 1;
+	background: rgba(0,0,0,.5);
+}
+
+.address-add{
+  padding: 20rpx 60rpx 20rpx 60rpx;
+  background: white;
+  margin-top: 20rpx;
+}

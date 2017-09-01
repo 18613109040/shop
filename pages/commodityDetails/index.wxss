@@ -1,0 +1,161 @@
+
+
+.dish-item-pic image{
+   margin-left: 20rpx;
+}
+
+.commodity-goods-salenum{
+  padding-top: 16rpx;
+}
+.commodity-price{
+  padding-top:16rpx;
+}
+.goods-salenum{
+  margin-left: 20rpx;
+}
+.price-color{
+  color:  #D0011B; 
+}
+.commodity-content{
+  padding: 20rpx;
+  background: #fff;
+  position: relative;
+  border-bottom: 1px solid #ccc;
+}
+.commodity-name{
+  color: #333;
+  line-height: 1;
+  font-size: 18px;
+}
+.commodity-details{
+  background: #fff;
+  padding:20rpx;
+
+}
+.commodity-details .title{
+  font-size: 14px;
+  color: #999;
+}
+
+.footer-b .footer-text{
+  font-size:10px;
+  color:#333;
+  position:absolute;
+  bottom:0;
+  left:10px;
+
+}
+
+
+
+.catr-left {
+  position: relative;
+  padding-left: 20rpx;
+  height: 50px;
+}
+.catr-left .cart-img{
+  margin-top: 20rpx;
+  display: inline-block;
+}
+.number-rid{
+  background:#D0011B;
+  border-radius:100px;
+  padding:0rpx 15rpx 0rpx 15rpx;
+  text-align:center;
+  color:white;
+  position:absolute;
+  margin-top:0rpx;
+  margin-left:0rpx;
+  font-size:10px;
+
+}
+.commodity swiper{
+  height: 500rpx;
+}
+
+/*mask*/
+.drawer_screen { 
+ width: 100%; 
+ height: 100%; 
+ position: fixed; 
+ top: 0; 
+ left: 0; 
+ z-index: 1000; 
+ background: #333333; 
+ opacity: 0.1; 
+ overflow: hidden; 
+} 
+  
+/*content*/
+.drawer_box { 
+ width: 650rpx; 
+ overflow: hidden; 
+ position: fixed; 
+ top: 50%; 
+ left: 0; 
+ z-index: 1001; 
+ background: #FAFAFA; 
+ margin: -150px 50rpx 0 50rpx; 
+ border-radius: 3px; 
+} 
+view{
+  line-height:35rpx;
+}
+.drawer_title{ 
+ padding:15px; 
+ font: 20px "microsoft yahei"; 
+ text-align: center; 
+ border-bottom: 1px solid  #E8E8EA;
+} 
+.drawer_content { 
+ height: 210px; 
+ overflow-y: scroll; /*超出父盒子高度可滚动*/
+} 
+  
+.drawer_footer{ 
+ padding: 20px; 
+ border-top: 1px solid #E8E8EA; 
+} 
+.x-calnel{
+  float: right;
+  position: absolute;
+  right: 0;
+  top: 20rpx;
+}
+.drawer_title .name{
+
+  text-align: center;
+  width: 100%;
+}
+.drawer_footer .money{
+  color: #FF004C ;
+  margin-right: 10rpx;
+}
+.gui_ge{
+  padding: 30rpx;
+}
+.gui_ge .rang{
+  background: #FFFFFF;
+  padding: 10rpx 30rpx 10rpx 30rpx;
+  border: 1px solid #DDDDDD ;
+  margin: 10rpx;
+}
+.gui_ge  .rang-change{
+  padding: 10rpx 30rpx 10rpx 30rpx;
+  border: 1px solid #FF004C ;
+  margin: 10rpx;
+  color: #FF004C;
+}
+.add_cart{
+  background: #FF004C;
+  padding: 17rpx;
+  color: white;
+  width: 200rpx;
+  text-align: center;
+  position: absolute;
+  right: 20rpx;
+  border-radius: 10rpx;
+}
+.guige-name{
+  padding: 30rpx;
+}

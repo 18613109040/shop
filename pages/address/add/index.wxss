@@ -1,0 +1,93 @@
+/**index.wxss**/
+.adress-add-group{
+   padding:10rpx 20rpx;
+}
+.adress-add{
+  font-size: 14px;
+}
+.adress-add-item{
+  background: #fff;
+  padding:0 20rpx;
+  border-bottom: 1px solid #EAEAEA;
+  height: 88rpx;
+  line-height: 88rpx;
+  position: relative;
+}
+.adress-add-item-sd{
+    background: #fff;
+  padding:0 20rpx;
+  border-bottom: 1px solid #EAEAEA;
+}
+.adress-add-item input,.adress-add-item-sd input,.adress-add-item-sd label{
+  font-size: 14px;
+  height: 88rpx;
+  line-height: 88rpx;
+}
+.adress-add-item input{
+  padding-right: 40rpx;
+}
+.adress-add-item-sd .radio-group{
+  border-top: 1px solid #EAEAEA;
+  height: 88rpx;
+  line-height: 88rpx;
+}
+.adress-add-item-sd .radio-group .ra+.ra{
+  margin-left: 50rpx;
+}
+.adress-add-item-sd .radio-group .radio-btn{
+  margin-right: 10rpx;
+}
+.address-add-save{
+  height: 88rpx;
+  align-items:center;
+  left: 0;
+  bottom: 0px;
+  display: -webkit-flex;
+  position:fixed;
+  width: 100%;
+  background: white;
+  text-align: center;
+  border-top: 1px solid  #EAEAEA;
+}
+.address-add-save-btn{
+  background: #FF004C;
+  width: 100%;
+  color: white;
+  background-color: #FF004C;
+  border-radius: 0px;
+} 
+.icon-serch{
+  position: absolute;
+  margin-top: 12rpx;
+  margin-left: 20rpx;
+  z-index: 11;
+}
+.search-in{
+  background: #EAEAEA;
+  border-radius: 100rpx;
+  height: 60rpx;
+  padding-left: 60rpx;
+
+}
+.top-search{
+  background: white;
+  padding: 20rpx;
+
+}
+.search-btn{
+  margin-left: 20rpx;
+}
+.result{
+  padding: 20rpx;
+  border-top: 1px solid #DDDDDD;
+}
+.go-btn{
+  position: absolute;
+  width: 26rpx;
+  height: 44rpx;
+  right: 20rpx;
+  top:20rpx;
+}
+.left-lable{
+  margin-left: 100rpx;
+}

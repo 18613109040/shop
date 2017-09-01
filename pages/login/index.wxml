@@ -1,0 +1,20 @@
+<!--index.wxml-->
+<view class="register-form">
+  <form >
+    <view class="register-add-item flex align-items-center">
+      <image src="../../images/lo_head.png" class="r-icon" mode="widthFix"></image>
+      <input type="number" class="flex-1"   name="phone"   bindinput="changeImput" data-name="phone" placeholder="请输入手机号"/>
+    </view>
+    <view class="register-add-item flex align-items-center">
+      <image src="../../images/lo_pass.png" class="r-icon" mode="widthFix"></image>
+      <input type="number"  name="verifyCode"   bindinput="changeverifyCode" data-name="verifyCode" placeholder="请输入验证码"/>
+      <button class="btn" bindtap="getCode"  disabled="{{disabled}}" loading="{{loading}}">{{name}}</button>
+    </view>
+    <view class="register-add-save" bindtap="bindCode">
+      <view class="btn-default btn-red btn-block">绑定</view>
+    </view>
+    <view class="tip">
+      根据国家政策，首次注册用户需要手机号进行实名认证，请完成绑定手机号操作，下次进入会利用微信授权自动登录
+    </view>
+  </form>
+</view>

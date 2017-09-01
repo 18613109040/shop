@@ -1,0 +1,31 @@
+/* index.wxss */
+.pay-header{
+  background-color: #fff;
+  padding: 25px 0;
+}
+.pay-image{
+  text-align: center
+}
+.pay-image image{
+  width:70px;
+}
+.pay-text{
+  text-align: center;
+  margin-top: 12px;
+  color: #000;
+}
+.pay-text .p-red{
+  color: #ff004c;
+}
+.pay-btns .btn-default{
+  padding: 10px;
+  background-color: #fff;
+}
+.pay-btns .btn-default+.btn-default{
+  margin-left:10px;
+}
+.pay-info{
+  margin:-10px 20px;
+  color: #999;
+  font-size: 12px;
+}

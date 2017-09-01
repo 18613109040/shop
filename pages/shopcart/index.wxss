@@ -1,0 +1,130 @@
+.shop-cart{
+  background: #fff;
+  font-size: 16px;
+}
+.shopicon{
+  vertical-align: text-bottom;
+  margin-right: 20rpx;
+}
+
+.header{
+  padding: 18rpx 15rpx;
+  border-bottom: 1px solid #EAEAEA;
+}
+.header .img{
+  vertical-align: sub;
+}
+
+.dish-category-title{
+  font-size: 28rpx;
+  color: #888;
+  border-bottom:2rpx solid #ccc;
+  padding: 20rpx 0;
+  margin-bottom: 6rpx;
+}
+
+.menu-footer{
+  height: 100rpx;
+}
+.cart-goods-bg{
+  padding: 0 0 0 30rpx;
+}
+.cart-goods-bg .cart-count{
+  padding-right: 30rpx;
+  padding-top: 40rpx;
+}
+.cart-goods-bg .dish-item-count{
+  padding-top: 0;
+}
+.cart-dish-item{
+  padding: 20rpx 0 0;
+  display: flex;
+  width: 100%;
+}
+.cart-dish-item .cart-info{
+  display: flex;
+  flex:1;
+  padding-bottom: 20rpx;
+  border-bottom: 1px solid #EAEAEA;
+
+  
+  
+}
+.cart-dish-item .cart-info .goodsimg{
+  width: 180rpx;
+  height: 180rpx;
+  vertical-align: top;
+}
+.cart-dish-item .check-btn{
+  vertical-align: middle;
+  padding-right: 20rpx;
+}
+.cart-dish-item .check-btn image{
+  margin-top: 70rpx;
+}
+.cart-dish-item-info{
+  flex:1;
+  padding-left: 20rpx;
+}
+.dish-item-pic{
+  width:158rpx;
+ 
+}
+.dish-item-pic image{
+   margin-left: 20rpx;
+}
+.dish-item-info{
+  padding-left: 60rpx;
+  max-width: 60%;
+  width: 60%;
+
+}
+.cart-value{
+  line-height: 1;
+
+}
+.dish-item-sales{
+  color: #ccc;
+
+}
+.dish-item-money{
+  color: #E6102C;
+
+}
+
+
+.price-t{
+  color: #E6102C;
+  padding-right: 30rpx;
+  text-align: right;
+}
+
+.check-all{
+  margin-left: 20rpx;
+  flex:1;
+}
+.animation-tran {
+    position: relative;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    transition: transform .5s;
+    -webkit-transition: transform .5s;
+}
+.animation-tran.in {
+    transform: translate3d(-60px,0,0);
+    -webkit-transform: translate3d(-60px,0,0);
+}
+.animation-remove {
+    position: absolute;
+    top: 0;
+    right: -60px;
+    width: 60px;
+    display: inline-block;
+    height: 105px;
+    line-height: 105px;
+    text-align: center;
+    background: #FF004C;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 1px;
+}

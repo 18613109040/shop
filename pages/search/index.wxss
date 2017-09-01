@@ -1,0 +1,89 @@
+/* index.wxss */
+.top-search{
+  background: white;
+  padding: 20rpx;
+
+}
+.top-search .flex-1,.top-search .search-btn{
+  height: 56rpx;
+}
+.input-view{
+  padding: 10px;
+  background-color: #fff;
+}
+.input-view .input{
+  background-color: #f4f4f4;
+  border-radius: 20px;
+  padding:4px 0 4px 10px;
+}
+.input-view .input input{
+  margin-left:5px
+}
+.input-btn{
+  background: #EAEAEA;
+  border-radius: 2px;
+  color: #999;
+  padding:7px 20px;
+  margin-left:10px;
+}
+.hot-content{
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+  padding:10px 15px;
+}
+.hot-content .hot-t{
+  color: #999999;
+  font-size: 14px;
+}
+.hot-list{
+  margin-top: 10px;
+}
+.hot-content .hot-btn{
+  margin-right:10px;
+  margin-bottom:10px;
+  padding:10rpx 20rpx;
+  font-size: 12px;
+  color: #9D9D9D;
+}
+
+.his-content{
+  margin-top: 10px;
+  background-color: #fff;
+}
+.his-content .his-item.title{
+  font-size: 14px;
+}
+.his-content .his-item{
+  padding:10px 15px;
+  font-size: 12px;
+}
+.his-content .his-item+.his-item{
+  border-top:1px solid #ddd;
+}
+.his-clear{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.his-clear .icon-delete{
+  vertical-align: middle;
+  
+}
+.his-clear .btn-default {
+  padding: 5px 15px;
+}
+
+
+.his-clear image{
+  width:25px;
+  height:25px;
+  vertical-align: top;
+}
+.his-clear text{
+  display: inline-block;
+  margin-top: 6px;
+}
+
+.search-result{
+  background: #fff;
+  margin-top: 20rpx;
+}

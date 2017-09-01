@@ -1,0 +1,126 @@
+/* index.wxss */
+@import '../order/order.wxss';
+.o-detail-top{
+  padding:20px 5px;
+  background-color: #fff;
+  margin:10px;
+}
+.o-detail-top .o-d-line{
+  background: #EAEAEA;
+  width:30px;
+  margin:0 auto 5px;
+  height:2px;
+}
+.o-detail-info{
+  margin-top:15px;
+  text-align: center;
+}
+.o-detail-info .odt1{
+  display: block;
+  font-size: 18px;
+  color: #333333;
+}
+.o-detail-info .odt2{
+  display:block;
+  font-size: 14px;
+  color: #999999;
+  margin-top:8px;
+}
+.o-datail-witer{
+  margin-top: 20rpx;
+}
+.o-detail-info .btn-order{
+  display: inline-block;
+  margin-top:15px;
+}
+.o-detail-info .btn-order+.btn-order{
+  margin-left:10px;
+}
+.o-detail-info .o-small{
+  margin-top:10px;
+  font-size: 10px;
+  color: #999;
+}
+.o-detail-pro{
+  margin:10px;
+}
+.o-pro-detail{
+  padding: 10px;  
+  background-color: #F8F7FC;
+}
+.o-pro-detail .image{
+  width:64px;
+  height:64px!important;
+  margin-right:10px;
+}
+.o-pro-detail .name{
+  font-size: 16px;
+  color: #333;
+}
+.o-pro-detail .i-info{
+  margin-top:28px
+}
+.o-pro-detail .d-number{
+  font-size: 16px;
+  color: #999;
+}
+.o-pro-detail .d-price{
+  font-size: 16px;
+  color: #333;
+}
+.o-detail-item{
+  position: relative;
+  background-color: #fff;
+  padding: 10px;
+  font-size: 14px;
+}
+.o-detail-item+.o-detail-item{
+  border-top:1px dashed #eee;
+}
+.o-detail-item .it-title{
+  color: #333;
+}
+.o-detail-item .it-price{
+  color: #FF004C;
+  font-size:16px;
+}
+.o-detail-item .small{
+  color: #999;
+}
+.o-detail-item .d-phone{
+  width:18px;
+  height:18px;
+  vertical-align: top;
+  margin-right: 10px;
+}
+.o-detail-item  .d-seller{
+  font-size: 16px;
+  line-height: 19px;
+  color: #333;
+}
+
+.o-detail-bottom{
+  margin:10px;
+  background-color: #fff;
+  padding:15px;
+}
+.o-detail-bottom .info-item{
+  display: flex;
+  width: 100%;
+}
+.o-detail-bottom .info-item+.info-item{
+  margin-top:5px;
+}
+.o-detail-bottom .info-item .i-label{
+  width:60px;
+  color:#999;
+  font-size: 14px;
+  display: inline-block;
+}
+.o-detail-bottom .info-item .i-text{
+  color: #333;
+  font-size:14px;
+  margin-left: 10px;
+  flex: 1;
+}
+

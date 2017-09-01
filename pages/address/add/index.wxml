@@ -1,0 +1,58 @@
+<view class="adress-add" wx:if="{{showpage==false}}">
+  <form bindsubmit="formSubmit" report-submit="true">
+    <view class="adress-add-group">
+      <text>联系人 </text>
+    </view>
+    <view class="adress-add-item-sd flex">
+      <label>姓名 ：</label>
+      <view class="name flex-1">
+        <input type="text" name="contact" value="{{contact}}" class="flex-1" bindinput="changeImput" data-name="contact" placeholder="收货人姓名"/>
+        <view class="radio-group">
+          <radio-group name="gender" bindchange="radioChange">
+            <label ><radio value="0" checked="{{checked==0}}" color="#FF004C"/>先生</label>
+            <label class="left-lable"><radio value="1"  checked="{{checked==1}}" color="#FF004C"/>女士</label>
+          </radio-group> 
+        </view>
+      </view>
+      
+    </view>
+    <view class="adress-add-item flex">
+      <label>电话：</label>
+      <input type="number" class="flex-1" value="{{phone}}"  name="phone"   bindinput="changeImput" data-name="phone" placeholder="联系您的电话"/>
+    </view>
+    <view class="adress-add-group">
+      <text>收货地址 </text>
+    </view>
+    <view class="adress-add-item flex" bindtap="clickAdress">
+      <label>小区/大厦/学校：</label>
+      <input type="text"  name="title"   class="flex-1" disabled="true" value="{{title}}" placeholder="请填写您的住宅小区、大厦货学校"/> 
+      <image src="../../../images/ic_go.png" class="go-btn"></image>
+    </view>
+    <view class="adress-add-item flex">
+      <label>楼号-门牌号：</label>
+      <input type="text" name="houseNumber"  value="{{houseNumber}}"   bindinput="changeImput"  data-name="houseNumber" class="flex-1" placeholder="请填写楼号门牌号等详细信息"></input>    
+    </view>
+    <view class="address-add-save">
+      <button class="address-add-save-btn" formType="submit" >保存</button>
+    </view>
+  </form>
+</view>
+<view  wx:if="{{showpage==true}}">
+  <view class="flex  space-between top-search">
+      <view class="flex-1">
+        <icon type="search" size="18" class="icon-serch" />
+        <input class="search-in body-small" bindinput="bindAddressInput" value="{{searchData.title}}" placeholder="请输入收货地址" />
+      </view>
+      <view class="search-btn">
+        <button type="default" size="mini"  bindtap="default" hover-class="other-button-hover"> 搜索 </button>
+      </view>
+  </view>
+  <scroll-view wx:if="{{result.length>0}}" scroll-y style="height: {{winHeight}}-120rpx" >
+    <block wx:for="{{result}}" wx:key="id"  >
+      <view class="result" bindtap="clickSuchAdress" data-name="{{item}}">
+        <view class="result-title body-base">{{item.title}}</view>
+        <view class="result-adderss body-sm grey-color">{{item.address}}</view>
+      </view>
+    </block>
+  </scroll-view>
+</view>

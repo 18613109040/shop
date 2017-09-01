@@ -1,0 +1,44 @@
+<view class="adress">
+  <!-- <view class="flex  space-between top-search">
+    <view class="flex-1">
+      <icon type="search" size="18" class="icon-serch" />
+      <input class="search-in body-small" bindinput="bindAddressInput" value="{{address}}" placeholder="请输入收货地址" />
+    </view>
+    <view class="search-btn">
+      <button type="default" size="mini" loading="{{loading}}" bindtap="default" hover-class="other-button-hover"> 搜索 </button>
+    </view>
+  </view> -->
+  <view class="classname">
+    <!-- <view class="adress-dingwei flex align-items-center justify-content">
+      <image src="{{serverImg}}/dingwei2.png" style="height: 60rpx;width:60rpx"></image>
+      <text>点击定位当前位置</text>
+    </view> -->
+    <navigator url="/pages/address/add/index">
+      <view class="address-add flex align-items-center space-between">
+        <text>新增收货地址</text>
+        <image src="{{serverImg}}/addressadd.png" style="height: 60rpx;width:60rpx"></image>
+      </view>
+    </navigator>
+    <view class="address-my-i">
+      <image src="{{serverImg}}/ic_clock.png" class="ic_clock"/><text class="grey-color body-small">我的收货地址</text>
+    </view>
+    <scroll-view scroll-y="true">
+      <block wx:for="{{adressList}}" wx:key="id" >
+        <view class="{{item.available?'address-items':'address-items unavaible'}}"  bindtap="changeAdress" data-id="{{item.id}}">
+          <view class="text-hidden-1">
+            <text class="body-base">{{item.title}}</text>
+          </view>
+          <view class="grey-color body-small">
+            <text>{{item.detail}}</text>
+          </view>
+          <view class="address-thum">
+            <text class="grey-color body-small">{{item.contact}}</text>
+             <text class="grey-color body-small">{{item.gender==0?"先生":"女士"}}</text>
+            <text class="grey-color body-small"> {{item.phone}}</text>
+          </view>
+          <image src="../../../images/ic_nopeisong.png" class="unImg"></image>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+</view>

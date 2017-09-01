@@ -1,0 +1,207 @@
+/**index.wxss**/
+page{
+  background-color:  #ddd ;
+}
+.index-body {
+  height: 100%;
+  padding: 0;
+  box-sizing: border-box; 
+  font-size: 28rpx;
+  background: #f4f4f4;
+} 
+.icon-address{
+  width:27rpx;
+  height:30rpx;
+  vertical-align:sub;
+  margin-right:10rpx;
+  
+}
+
+
+/*轮播*/
+swiper.swiper {
+  height: 400rpx;
+
+}
+.swiper-item {
+    display: block;
+    height: 100%;
+}
+.slide-image {
+  height: 100%;
+  width: 100%;
+  display: inline-block;
+  overflow: hidden;
+  
+}
+.a-top{
+  position: absolute;
+  z-index: 10;
+  margin-top: 15rpx;
+  margin-left: 2%;
+  width:96%;
+  margin-right: 2%;
+
+}
+.shop-name{
+  font-size: 16px;
+}
+
+.text-address{
+  font-size: 26rpx;
+  overflow: hidden;
+}
+
+.name-d{
+  opacity: 0.7;
+  background: #505050;
+  border-radius: 100px;
+  padding: 0rpx 20rpx 0rpx 20rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  color: white;
+  min-width: 80rpx;
+  max-width: 320rpx;
+
+}
+.name-d .arrow{
+  width:12rpx;
+  height: 21rpx;
+  vertical-align: middle;
+  display: inline-block;
+  margin-left: 6rpx;
+}
+.flex-6{
+  margin-left: 20rpx;
+  flex: 2;
+}
+/*菜单栏*/
+.index-nav{
+  display: flex;
+  background-color: #fff;
+  padding-top: 16rpx;
+  padding-bottom: 20rpx;
+
+}
+
+.nav-item{
+  flex: 1;
+  text-align: center;
+
+
+}
+.nav-item .nav-text{
+  color: #333;
+  font-size: 12px;
+  padding-top: 10rpx;
+  display: inline-block;
+}
+.nav-item .nav-icon{
+
+ 
+}
+.index-body .renmen{
+  text-align: center;
+  padding:20px 30rpx 30rpx;
+  margin-top: 32rpx;
+  background-color: #fff;
+  border-bottom: 1px solid #E7E7E7;
+  color: #333;
+  
+}
+.l-line{
+  color: #E7e7e7;
+  font-weight: 700;
+  display: inline-block;
+  margin-right: 20rpx;
+}
+.r-line{
+  color: #E7e7e7;
+  font-weight: 700;
+  margin-left: 20rpx;
+  display: inline-block;
+}
+
+
+
+.fill-content{
+  background: white;
+}
+.dish-category-title{
+  font-size: 28rpx;
+  color: #888;
+  border-bottom:2rpx solid #ccc;
+  padding: 20rpx 0;
+  margin-bottom: 6rpx;
+}
+
+.menu-footer{
+  height: 100rpx;
+}
+
+.dish-footer{
+  height: 100rpx;
+}
+
+
+
+.shop-info{
+  margin-top: 20rpx;
+  font-size: 20rpx;
+}
+.shop-dan{
+  margin-top: 10rpx;
+  font-size: 10px;
+}
+.shop{
+  padding:20rpx 30rpx;
+  background: white;
+  border-bottom: 1px solid #EAEAEA;
+}
+.shop-time{
+  border: 1px solid #FF004C;
+  border-radius: 2px;
+  color: #FF004C ;
+  padding: 5rpx 20rpx;
+}
+.shop-juli{
+  float: right;
+}
+
+.shop-join{
+  margin-top: 20rpx;
+  font-size: 10px;
+}
+.left-10{
+  margin-left: 20rpx;
+}
+.right-text{
+  float: right;
+}
+
+
+.list-child{
+  text-align: center;
+  width:70%;
+  margin:0px auto;
+
+}
+.grey-classfy{
+  right: 10rpx;
+  position: absolute;
+}
+.list-top-1{
+  text-align: center;
+  margin-top: 40rpx; 
+  padding: 5rpx 30rpx 8rpx 30rpx;
+}
+.list-top{
+  margin-top: 40rpx;
+  color:white;
+  background: #FF004C;
+  border-radius: 92rpx;  
+  padding: 5rpx 30rpx 8rpx 30rpx;
+}
+
+
+
